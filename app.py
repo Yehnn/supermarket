@@ -22,6 +22,14 @@ def user_index(username):
 def product_index(product_id):
     return render_template('product.html',product_id=product_id)
 
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'),404
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
 
 if __name__=='__main__':
     app.run()
