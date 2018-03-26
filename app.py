@@ -2,11 +2,23 @@ from flask import Flask,render_template
 from flask import request,make_response
 
 app=Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD']=True
 
 app.config.update({
     'SECRET_KEY':'a random string'
     })
 
+
+
+            
+user={
+            'id': 1,
+            'uname': 'tom',
+            'tel': '1841111111',
+            'addr': 'tianfu',
+            'time': '2018-3-26',
+            'pay': 'weixin'
+            }
 @app.route('/')
 def index():
     username=request.cookies.get('username')
@@ -20,7 +32,16 @@ def user_index(username):
 
 @app.route('/product/<int:product_id>')
 def product_index(product_id):
-    return render_template('product.html',product_id=product_id)
+    product={
+            'id': 1,
+            'pname': 'maidong',
+            'price': 2.0,
+            'stock': 5,
+            'time': '2018-3-26',
+            'category': 'water',
+            'tags': ['water','summer','engine']
+            }
+    return render_template('product.html',product_id=product_id,product=product)
 
 @app.errorhandler(404)
 def not_found(error):
