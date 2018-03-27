@@ -1,0 +1,13 @@
+{% macro product_item(product,type="good") %}
+<p> id: {{ product.id }} </p>
+<p> name: {{ product.pname }} </p>
+<p color="red" > price: {{ product.price }} </p>
+<p> stock: {{ product.stock }} </p>
+<p> time: {{ product.time }} </p>
+<p> category: {{ product.category }} </p>
+{% for tag in product.tags %}
+	<span> {{ tag }} </span>
+{% endfor %}
+<p> tag length: {{ product.tags | length }} </p>
+<p> type: {{ type }} </p>
+{% endmacro %}

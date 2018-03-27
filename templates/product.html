@@ -1,17 +1,7 @@
 <h1> product id : {{product_id}} </h1>
 <p> {{ product }}<p>
-{% macro product_item(product,type="good") %}
-<p> id: {{ product.id }} </p>
-<p> name: {{ product.pname }} </p>
-<p color="red" > price: {{ product.price }} </p>
-<p> stock: {{ product.stock }} </p>
-<p> time: {{ product.time }} </p>
-<p> category: {{ product.category }} </p>
-{% for tag in product.tags %}
-	<span> {{ tag }} </span>
-{% endfor %}
-<p> type: {{ type }} </p>
-{% endmacro %}
+
+{% from 'macro.html' import product_item %}
 
 <div> {{ product_item(product) }} </div>
 <div> {{ product_item(product,type="bad") }} </div>

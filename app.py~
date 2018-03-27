@@ -8,10 +8,7 @@ app.config.update({
     'SECRET_KEY':'a random string'
     })
 
-def hidden_name(name):
-    return name[:-2] + '**'
 
-app.add_template_filter(hidden_name)
 
             
 user={
